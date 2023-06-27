@@ -2527,11 +2527,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/prudvi/Desktop/MovieList/MovieList.csproj",
-      "projectName": "MovieList",
-      "projectPath": "/Users/prudvi/Desktop/MovieList/MovieList.csproj",
+      "projectUniqueName": "/Users/prudvi/Desktop/Driver/Drivers.csproj",
+      "projectName": "Drivers",
+      "projectPath": "/Users/prudvi/Desktop/Driver/Drivers.csproj",
       "packagesPath": "/Users/prudvi/.nuget/packages/",
-      "outputPath": "/Users/prudvi/Desktop/MovieList/obj/",
+      "outputPath": "/Users/prudvi/Desktop/Driver/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/prudvi/.nuget/NuGet/NuGet.Config"
