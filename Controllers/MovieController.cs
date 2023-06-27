@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using MovieList.Models;
+using Drivers.Models;
 
-namespace MovieList.Controllers
+namespace Drivers.Controllers
 {
-    public class MovieController : Controller
+    public class DriverController : Controller
     {
-        private MovieContext context { get; set; }
+        private DriverContext context { get; set; }
 
-        public MovieController(MovieContext ctx)
+        public DriverController(DriverContext ctx)
         {
             context = ctx;
         }
@@ -18,7 +18,7 @@ namespace MovieList.Controllers
         {
             ViewBag.Action = "Add";
             ViewBag.Genres = context.Genres.OrderBy(g => g.Name).ToList();
-            return View("Edit", new Movie());
+            return View("Edit", new Driver());
         }
 
         [HttpGet]
@@ -26,41 +26,41 @@ namespace MovieList.Controllers
         {
             ViewBag.Action = "Edit";
             ViewBag.Genres = context.Genres.OrderBy(g => g.Name).ToList();
-            var movie = context.Movies.Find(id);
-            return View(movie);
+            var driver = context.Drivers.Find(id);
+            return View(driver);
         }
 
         [HttpPost]
-        public IActionResult Edit(Movie movie)
+        public IActionResult Edit(Driver driver)
         {
             if (ModelState.IsValid)
             {
-                if (movie.MovieId == 0) 
-                    context.Movies.Add(movie);
+                if (driver.DriverId == 0) 
+                    context.Drivers.Add(driver);
                 else 
-                    context.Movies.Update(movie);
+                    context.Drivers.Update(driver);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ViewBag.Action = (movie.MovieId == 0) ? "Add": "Edit";
+                ViewBag.Action = (driver.DriverId == 0) ? "Add": "Edit";
                 ViewBag.Genres = context.Genres.OrderBy(g => g.Name).ToList();
-                return View(movie);
+                return View(driver);
             }
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var movie = context.Movies.Find(id);
-            return View(movie);
+            var driver = context.Drivers.Find(id);
+            return View(driver);
         }
 
         [HttpPost]
-        public IActionResult Delete(Movie movie)
+        public IActionResult Delete(Driver driver)
         {
-            context.Movies.Remove(movie);
+            context.Drivers.Remove(driver);
             context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }

@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using MovieList.Models;
+using Drivers.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MovieContext>(
+builder.Services.AddDbContext<DriverContext>(
     options => options.UseSqlite(
-        builder.Configuration.GetConnectionString("MovieContext")));
+        builder.Configuration.GetConnectionString("DriverContext")));
 
 builder.Services.AddRouting(options =>
 {

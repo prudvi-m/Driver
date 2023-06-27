@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MovieList.Migrations
+namespace Drivers.Migrations
 {
     public partial class Initial : Migration
     {
@@ -21,10 +21,10 @@ namespace MovieList.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Movies",
+                name: "Drivers",
                 columns: table => new
                 {
-                    MovieId = table.Column<int>(type: "INTEGER", nullable: false)
+                    DriverId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
@@ -33,9 +33,9 @@ namespace MovieList.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Movies", x => x.MovieId);
+                    table.PrimaryKey("PK_Drivers", x => x.DriverId);
                     table.ForeignKey(
-                        name: "FK_Movies_Genres_GenreId",
+                        name: "FK_Drivers_Genres_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genres",
                         principalColumn: "GenreId",
@@ -78,30 +78,30 @@ namespace MovieList.Migrations
                 values: new object[] { "S", "SciFi" });
 
             migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "MovieId", "GenreId", "Name", "Rating", "Year" },
+                table: "Drivers",
+                columns: new[] { "DriverId", "GenreId", "Name", "Rating", "Year" },
                 values: new object[] { 2, "A", "Wonder Woman", 3, 2017 });
 
             migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "MovieId", "GenreId", "Name", "Rating", "Year" },
+                table: "Drivers",
+                columns: new[] { "DriverId", "GenreId", "Name", "Rating", "Year" },
                 values: new object[] { 3, "R", "Moonstruck", 4, 1988 });
 
             migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "MovieId", "GenreId", "Name", "Rating", "Year" },
+                table: "Drivers",
+                columns: new[] { "DriverId", "GenreId", "Name", "Rating", "Year" },
                 values: new object[] { 4, "D", "Casablanca", 5, 1942 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_GenreId",
-                table: "Movies",
+                name: "IX_Drivers_GenreId",
+                table: "Drivers",
                 column: "GenreId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Movies");
+                name: "Drivers");
 
             migrationBuilder.DropTable(
                 name: "Genres");

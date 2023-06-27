@@ -3,21 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MovieList.Models;
+using Drivers.Models;
 
 #nullable disable
 
-namespace MovieList.Migrations
+namespace Drivers.Migrations
 {
-    [DbContext(typeof(MovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DriverContext))]
+    partial class DriverContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
 
-            modelBuilder.Entity("MovieList.Models.Genre", b =>
+            modelBuilder.Entity("Drivers.Models.Genre", b =>
                 {
                     b.Property<string>("GenreId")
                         .HasColumnType("TEXT");
@@ -68,9 +68,9 @@ namespace MovieList.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MovieList.Models.Movie", b =>
+            modelBuilder.Entity("Drivers.Models.Driver", b =>
                 {
-                    b.Property<int>("MovieId")
+                    b.Property<int>("DriverId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -90,16 +90,16 @@ namespace MovieList.Migrations
                         .IsRequired()
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("MovieId");
+                    b.HasKey("DriverId");
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Drivers");
 
                     b.HasData(
                         new
                         {
-                            MovieId = 4,
+                            DriverId = 4,
                             GenreId = "D",
                             Name = "Casablanca",
                             Rating = 5,
@@ -107,7 +107,7 @@ namespace MovieList.Migrations
                         },
                         new
                         {
-                            MovieId = 2,
+                            DriverId = 2,
                             GenreId = "A",
                             Name = "Wonder Woman",
                             Rating = 3,
@@ -115,7 +115,7 @@ namespace MovieList.Migrations
                         },
                         new
                         {
-                            MovieId = 3,
+                            DriverId = 3,
                             GenreId = "R",
                             Name = "Moonstruck",
                             Rating = 4,
@@ -123,9 +123,9 @@ namespace MovieList.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MovieList.Models.Movie", b =>
+            modelBuilder.Entity("Drivers.Models.Driver", b =>
                 {
-                    b.HasOne("MovieList.Models.Genre", "Genre")
+                    b.HasOne("Drivers.Models.Genre", "Genre")
                         .WithMany()
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)

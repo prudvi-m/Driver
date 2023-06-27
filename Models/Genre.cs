@@ -1,4 +1,4 @@
-﻿namespace MovieList.Models
+﻿namespace Drivers.Models
 {
     public class Genre
     {

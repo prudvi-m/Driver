@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace MovieList.Models
+namespace Drivers.Models
 {
-    public class MovieContext : DbContext
+    public class DriverContext : DbContext
     {
-        public MovieContext(DbContextOptions<MovieContext> options)
+        public DriverContext(DbContextOptions<DriverContext> options)
             : base(options)
         { }
 
-        public DbSet<Movie> Movies { get; set; } 
+        public DbSet<Driver> Drivers { get; set; } 
         public DbSet<Genre> Genres { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,23 +23,23 @@ namespace MovieList.Models
                 new Genre { GenreId = "S", Name = "SciFi" }
             );
             
-            modelBuilder.Entity<Movie>().HasData(
-                new Movie {
-                    MovieId = 4,
+            modelBuilder.Entity<Driver>().HasData(
+                new Driver {
+                    DriverId = 4,
                     Name = "Casablanca",
                     Year = 1942,
                     Rating = 5,
                     GenreId = "D"
                 },
-                new Movie {
-                    MovieId = 2,
+                new Driver {
+                    DriverId = 2,
                     Name = "Wonder Woman",
                     Year = 2017,
                     Rating = 3,
                     GenreId = "A"
                 },
-                new Movie {
-                    MovieId = 3,
+                new Driver {
+                    DriverId = 3,
                     Name = "Moonstruck",
                     Year = 1988,
                     Rating = 4,

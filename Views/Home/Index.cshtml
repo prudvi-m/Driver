@@ -1,9 +1,9 @@
-﻿@model List<Movie>
+﻿@model List<Driver>
 @{
-    ViewData["Title"] = "My Movies";
+    ViewData["Title"] = "My Drivers";
 }
 <div class="mb-2">
-    <a asp-controller="Movie" asp-action="Add">Add New Movie</a>
+    <a asp-controller="Driver" asp-action="Add">Add New Driver</a>
 </div>
 
 <table class="table table-bordered table-striped">
@@ -16,19 +16,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var movie in Model) {
+        @foreach (var driver in Model) {
             <tr>
-                <td>@movie.Name</td>
-                <td>@movie.Year</td>
-                <td>@movie.Genre.Name</td>
-                <td>@movie.Rating</td>
+                <td>@driver.Name</td>
+                <td>@driver.Year</td>
+                <td>@driver.Genre.Name</td>
+                <td>@driver.Rating</td>
                 <td>
-                    <a asp-controller="Movie" asp-action="Edit"
-                       asp-route-id="@movie.MovieId"
-                       asp-route-slug="@movie.Slug">Edit</a>
-                    <a asp-controller="Movie" asp-action="Delete"
-                       asp-route-id="@movie.MovieId"
-                       asp-route-slug="@movie.Slug">Delete</a>
+                    <a asp-controller="Driver" asp-action="Edit"
+                       asp-route-id="@driver.DriverId"
+                       asp-route-slug="@driver.Slug">Edit</a>
+                    <a asp-controller="Driver" asp-action="Delete"
+                       asp-route-id="@driver.DriverId"
+                       asp-route-slug="@driver.Slug">Delete</a>
                 </td>
             </tr>
         }

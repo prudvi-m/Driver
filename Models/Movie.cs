@@ -2,12 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace MovieList.Models
+namespace Drivers.Models
 {
-    public class Movie
+    public class Driver
     {
         // EF will instruct the database to automatically generate this value
-        public int MovieId { get; set; }
+        public int DriverId { get; set; }
 
         [Required(ErrorMessage = "Please enter a name.")] 
         public string Name { get; set; } = string.Empty;
